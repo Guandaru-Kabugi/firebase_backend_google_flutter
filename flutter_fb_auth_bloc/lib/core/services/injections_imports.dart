@@ -1,0 +1,33 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_fb_auth_bloc/core/util/firebase_notification_utils.dart';
+import 'package:flutter_fb_auth_bloc/core/util/sqlife_helper.dart';
+import 'package:flutter_fb_auth_bloc/features/auth/data/datasources/auth/remote_auth_datasource.dart';
+import 'package:flutter_fb_auth_bloc/features/auth/data/repository/auth/auth_remote_impl.dart';
+import 'package:flutter_fb_auth_bloc/features/auth/domain/repository/auth/auth_repository.dart';
+import 'package:flutter_fb_auth_bloc/features/auth/domain/usecases/auth/change_password.dart';
+import 'package:flutter_fb_auth_bloc/features/auth/domain/usecases/auth/forgot_password.dart';
+import 'package:flutter_fb_auth_bloc/features/auth/domain/usecases/auth/login.dart';
+import 'package:flutter_fb_auth_bloc/features/auth/domain/usecases/auth/logout.dart';
+import 'package:flutter_fb_auth_bloc/features/auth/domain/usecases/auth/signinwithgoogle.dart';
+import 'package:flutter_fb_auth_bloc/features/auth/domain/usecases/auth/signup.dart';
+import 'package:flutter_fb_auth_bloc/features/auth/presentation/blocs/auth_bloc/auth_bloc.dart';
+import 'package:flutter_fb_auth_bloc/features/auth/presentation/blocs/change_password_bloc/changepassword_bloc.dart';
+import 'package:flutter_fb_auth_bloc/features/auth/presentation/blocs/forgot_password_bloc/forgot_password_bloc.dart';
+import 'package:flutter_fb_auth_bloc/features/auth/presentation/cubits/cubit/image_cubit.dart';
+import 'package:flutter_fb_auth_bloc/features/mpesa/data/datasources/mpesa/mpesa_data_source.dart';
+import 'package:flutter_fb_auth_bloc/features/mpesa/data/repository/mpesa/payment_repository_impl.dart';
+import 'package:flutter_fb_auth_bloc/features/mpesa/domain/repository/mpesa/mpesa_repository.dart';
+import 'package:flutter_fb_auth_bloc/features/mpesa/domain/usecases/mpesa/payment_process.dart';
+import 'package:flutter_fb_auth_bloc/features/mpesa/presentation/blocs/mpesa_bloc/mpesa_bloc.dart';
+import 'package:flutter_fb_auth_bloc/features/posts/data/datasources/posts/post_remote_datasource.dart';
+import 'package:flutter_fb_auth_bloc/features/posts/data/repository/posts/posts_repository_impl.dart';
+import 'package:flutter_fb_auth_bloc/features/posts/domain/repository/posts/posts_repository.dart';
+import 'package:flutter_fb_auth_bloc/features/posts/domain/usecases/posts/create_new_post.dart';
+import 'package:flutter_fb_auth_bloc/features/posts/domain/usecases/posts/getallposts.dart';
+import 'package:flutter_fb_auth_bloc/features/posts/presentation/blocs/posts_bloc/posts_bloc.dart';
+import 'package:flutter_fb_auth_bloc/firebase_options.dart';
+import 'package:get_it/get_it.dart';
+
+part 'injection.dart';
+
+final sl = GetIt.instance;
