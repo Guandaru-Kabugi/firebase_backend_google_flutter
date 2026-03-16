@@ -1,16 +1,19 @@
 import 'dart:convert';
 
+import 'package:flutter_fb_auth_bloc/core/util/urls.dart';
 import 'package:flutter_fb_auth_bloc/features/posts/data/models/posts/posts_model.dart';
 //import 'package:flutter_fb_auth_bloc/features/auth/domain/entities/posts/post.dart';
 import 'package:http/http.dart' as http;
 
 class PostRemoteDatasource {
+  String baseUrl = Urls.baseUrl!;
   Future<List<PostsModel>> fetchAllPosts () async{
     var client = http.Client();
 
     try {
+      
       final response = await client.get(
-        Uri.parse('https://jsonplaceholder.typicode.com/posts'),
+        Uri.parse('$baseUrl/posts'),
         headers: {
         'User-Agent': 'FlutterAuthPostsApp/1.0',
         'Accept': 'application/json',
@@ -39,7 +42,7 @@ class PostRemoteDatasource {
 
     try {
       final response = await client.post(
-        Uri.parse('https://jsonplaceholder.typicode.com/posts'),
+        Uri.parse('$baseUrl/posts'),
         headers: {
         'User-Agent': 'FlutterAuthPostsApp/1.0',
         'Accept': 'application/json',
